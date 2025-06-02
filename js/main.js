@@ -6,7 +6,7 @@
 			const p = new URLSearchParams(h);
 			
 			if (p.has("gsc.q"))
-				document.title = `${p.get("gsc.q")} - Family Search`;
+				document.title = `${p.get("gsc.q")} - Family Search Engine`;
 		}
 	}
 	
