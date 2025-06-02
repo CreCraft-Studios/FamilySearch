@@ -20,6 +20,6 @@
 		subtree: true
 	});
 	
-	window.addEventListener('hashchange'()=>{loadTitle();});
+	window.addEventListener('hashchange',()=>{loadTitle();});
 
 })();
