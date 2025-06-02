@@ -9,16 +9,18 @@
 				document.title = `${p.get("gsc.q")} - Family Search Engine`;
 		}
 	}
-	
-	const t = document.getElementById("___gcse_0");
-	const o = new MutationObserver(()=>{
-		loadTitle();
-	});
-	
-	o.observe(t, {
-		childList: true,
-		subtree: true
-	});
+
+	setTimeout(function(){
+		const t = document.getElementById("___gcse_0");
+		const o = new MutationObserver(()=>{
+			loadTitle();
+		});
+		
+		o.observe(t, {
+			childList: true,
+			subtree: true
+		});
+	}, 2000);
 	
 	window.addEventListener('hashchange',()=>{loadTitle();});
 
