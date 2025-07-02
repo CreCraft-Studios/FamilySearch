@@ -1,0 +1,13 @@
+<html>
+<body>
+    <a id="url">URL</a>
+<input type="textbox" id="txt">
+<input type="button" value="Get Value" onclick="load();">
+    <script>
+    function load() {
+        var t = document.getElementById("txt").value;
+        document.getElementById("url").setAttribute("href", t);
+    }
+    </script>
+</body>
+</html>
