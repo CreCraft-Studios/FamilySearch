@@ -12,9 +12,16 @@
 
 	function enableSafeSearch() {
 	    const p = document.getElementsByClassName("gcsc-more-maybe-branding-root")[0];
-	    const a = p.children[0];
-	    a.setAttribute("href", `${a.getAttribute("href")}&safe=strict`);
+		if (p!=null) {
+		    const a = p.children[0];
+			if (a!=null) {
+				clearInterval(st);
+		    		a.setAttribute("href", `${a.getAttribute("href")}&safe=strict`);
+			}
+		}
 	}
+
+	const st = setInterval(function(){enableSafeSearch();}, 1000);
 
 	setTimeout(function(){
 		const t = document.getElementById("___gcse_0");
