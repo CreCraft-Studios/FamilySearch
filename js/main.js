@@ -28,12 +28,7 @@
 			subtree: true
 		});
 	}, 2000);
-
-	function init() {
-		loadTitle();
-		enableSafeSearch();
-	}
 	
-	window.addEventListener('hashchange',()=>{init();});
-	window.addEventListener('DOMContentLoaded',()=>{init();});
+	window.addEventListener('hashchange',()=>{loadTitle();});
+	window.addEventListener('DOMContentLoaded',()=>{loadTitle();});
 })();
