@@ -35,5 +35,5 @@
 	}
 	
 	window.addEventListener('hashchange',()=>{init();});
-	window.addEventListener('DOMContentLoaded',()=>init(););
+	window.addEventListener('DOMContentLoaded',()=>{init();});
 })();
