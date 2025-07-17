@@ -23,5 +23,5 @@
 	}, 2000);
 	
 	window.addEventListener('hashchange',()=>{loadTitle();});
-
+	window.addEventListener('DOMContentLoaded',()=>loadTitle(););
 })();
