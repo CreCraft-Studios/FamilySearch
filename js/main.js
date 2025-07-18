@@ -11,6 +11,7 @@
 	}
 
 	function enableSafeSearch() {
+try {
 	    const p = document.getElementsByClassName("gcsc-more-maybe-branding-root")[0];
 		if (p!=null) {
 		    const a = p.children[0];
@@ -19,6 +20,12 @@
 		    		a.setAttribute("href", `${a.getAttribute("href")}&safe=strict`);
 			}
 		}
+} catch(e) {
+console.error(e);
+
+if (window.location.href.includes("log=true"))
+alert(`Error Message: ${e}`);
+}
 	}
 
 	const st = setInterval(function(){enableSafeSearch();}, 1000);
