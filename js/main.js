@@ -15,6 +15,7 @@ d.appendChild(p);
 		}
 	}
 
+	var st=null;
 	function enableSafeSearch() {
 		log("waiting for intrustions");
 try {
@@ -28,6 +29,8 @@ log("p not null");
 log("a not null");
 				const url = `${a.getAttribute("href")}&safe=strict`;
 		    		a.setAttribute("href", url);
+
+				if (st!=null)
 clearInterval(st);
 			}
 		}
@@ -38,8 +41,8 @@ log(`Error Message: ${e}`);
 	}
 
 	function startTimer() {
-		alert("timer called");
-	const st = setInterval(function(){enableSafeSearch();}, 1000);
+		log("timer called");
+	st = setInterval(function(){enableSafeSearch();}, 1000);
 	}
 
 	setTimeout(function(){
