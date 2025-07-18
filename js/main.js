@@ -29,8 +29,6 @@ log("p not null");
 log("a not null");
 				const url = `${a.getAttribute("href")}&safe=strict`;
 		    		a.setAttribute("href", url);
-
-				if (st!=null)
 clearInterval(st);
 			}
 		}
