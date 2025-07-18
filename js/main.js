@@ -31,7 +31,7 @@ log("a not null");
 		    		a.setAttribute("href", url);
 clearInterval(st);
 			}
-		}
+		} else log("p is empty. Why?");
 } catch(e) {
 console.error(e);
 log(`Error Message: ${e}`);
@@ -57,5 +57,5 @@ log(`Error Message: ${e}`);
 	}, 2000);
 	
 	window.addEventListener('hashchange',()=>{loadTitle();});
-	window.addEventListener('DOMContentLoaded',()=>{loadTitle();});
+	window.addEventListener('DOMContentLoaded',()=>{loadTitle(); startTimer();});
 })();
