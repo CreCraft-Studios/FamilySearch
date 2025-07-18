@@ -1,5 +1,10 @@
 (function(){
-
+function log(msg) {
+	const d = document.getElementById("log");
+	const p = document.createElement("p");
+p.innerText = `Log: ${msg}`;
+d.appendChild(p);
+}
 	function loadTitle() {
 		if (window.location.href.includes('#')) {
 			const h = window.location.hash.substring(1);
@@ -11,19 +16,16 @@
 	}
 
 	function enableSafeSearch() {
-		alert("waiting for intrustions");
+		log("waiting for intrustions");
 try {
-if (window.location.href.includes("log=true"))
-alert("Function was called");
+log("Function was called");
 	
 	    const p = document.getElementsByClassName("gcsc-more-maybe-branding-root")[0];
 		if (p!=null) {
-if (window.location.href.includes("log=true"))
-alert("p not null");
+log("p not null");
 		    const a = p.children[0];
 			if (a!=null) {
-if (window.location.href.includes("log=true"))
-alert("a not null");
+log("a not null");
 				const url = `${a.getAttribute("href")}&safe=strict`;
 		    		a.setAttribute("href", url);
 clearInterval(st);
@@ -31,9 +33,7 @@ clearInterval(st);
 		}
 } catch(e) {
 console.error(e);
-
-if (window.location.href.includes("log=true"))
-alert(`Error Message: ${e}`);
+log(`Error Message: ${e}`);
 }
 	}
 
