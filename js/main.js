@@ -11,6 +11,7 @@
 	}
 
 	function enableSafeSearch() {
+		alert("waiting for intrustions");
 try {
 if (window.location.href.includes("log=true"))
 alert("Function was called");
@@ -36,13 +37,16 @@ alert(`Error Message: ${e}`);
 }
 	}
 
+	function startTimer() {
+		alert("timer called");
 	const st = setInterval(function(){enableSafeSearch();}, 1000);
+	}
 
 	setTimeout(function(){
 		const t = document.getElementById("___gcse_0");
 		const o = new MutationObserver(()=>{
 			loadTitle();
-			enableSafeSearch();
+			startTimer();
 		});
 		
 		o.observe(t, {
