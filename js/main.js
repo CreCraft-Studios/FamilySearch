@@ -21,7 +21,10 @@ d.appendChild(p);
 try {
 log("Function was called");
 	
-	    const p = document.getElementsByClassName("gcsc-more-maybe-branding-root")[0];
+	    var p = document.getElementsByClassName("gcsc-more-maybe-branding-root")[0];
+	if (p==null)
+		p = document.getElementsByClassName("gcsc-more-maybe-branding-box")[0];
+	
 		if (p!=null) {
 log("p not null");
 		    const a = p.children[0];
