@@ -31,7 +31,10 @@ log("a not null");
 		    		a.setAttribute("href", url);
 clearInterval(st);
 			}
-		} else log("p is empty. Why?");
+		} else {
+			log("p is empty. Why?");
+			log(`p value: ${p}`);
+		}
 } catch(e) {
 console.error(e);
 log(`Error Message: ${e}`);
