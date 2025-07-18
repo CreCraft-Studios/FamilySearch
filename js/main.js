@@ -12,12 +12,20 @@
 
 	function enableSafeSearch() {
 try {
+if (window.location.href.includes("log=true"))
+alert("Function was called");
+	
 	    const p = document.getElementsByClassName("gcsc-more-maybe-branding-root")[0];
 		if (p!=null) {
+if (window.location.href.includes("log=true"))
+alert("p not null");
 		    const a = p.children[0];
 			if (a!=null) {
-				clearInterval(st);
-		    		a.setAttribute("href", `${a.getAttribute("href")}&safe=strict`);
+if (window.location.href.includes("log=true"))
+alert("a not null");
+				const url = `${a.getAttribute("href")}&safe=strict`;
+		    		a.setAttribute("href", url);
+clearInterval(st);
 			}
 		}
 } catch(e) {
