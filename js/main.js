@@ -3,6 +3,7 @@ var safeApplied=false;
 function needToRejectSearch(query) {
 	if (query.includes("porn") || query.includes("xnxx") || query.includes("xvideos")) {
 		const d = document.getElementsByClassName("gsc-expansionArea")[0];
+		if (d!=null) {
 		while (d.children.length>0) {
 		    d.removeChild(d.firstChild);
 		}
@@ -17,6 +18,7 @@ function needToRejectSearch(query) {
 		p2.appendChild(p3);
 		p.appendChild(p2);
 		d.appendChild(p);
+		} else setTimeout(function(){needToRejectSearch(query);}, 1000);
 	}
 }
 	
