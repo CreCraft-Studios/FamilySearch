@@ -7,7 +7,6 @@ function needToRejectSearch(query) {
 			const d = document.getElementsByClassName("gsc-expansionArea")[0];
 			if (d!=null) {
 				if (d.children.length<0) {
-					log("no children");
 					setTimeout(function(){needToRejectSearch(query);}, 1000);
 				} else {
 					while (d.children.length>0) {
@@ -29,7 +28,6 @@ function needToRejectSearch(query) {
 		}
 	} catch(e) {
 		console.error(e);
-		log(e);
 	}
 }
 	
