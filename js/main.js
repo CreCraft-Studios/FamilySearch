@@ -1,25 +1,15 @@
 (function(){
 var safeApplied=false;
-function log(msg) {
-	const l = document.getElementById("log");
-	const m = document.createElement("p")
-m.innerText = `Log: ${msg}`;
-l.appendChild(m);
-}
 	
 function needToRejectSearch(query) {
-	log("got called");
 	try {
 		if (query.includes("porn") || query.includes("xnxx") || query.includes("xvideos")) {
-			log("found. Need to delete");
 			const d = document.getElementsByClassName("gsc-expansionArea")[0];
 			if (d!=null) {
-				log("d found. Time to delete");
 				if (d.children.length<0) {
 					log("no children");
 					setTimeout(function(){needToRejectSearch(query);}, 1000);
 				} else {
-					log("has children. Deleting");
 					while (d.children.length>0) {
 					    d.removeChild(d.firstChild);
 					}
@@ -35,13 +25,7 @@ function needToRejectSearch(query) {
 					p.appendChild(p2);
 					d.appendChild(p);
 				}
-			} else {
-				log("d is null. trying again");
-				setTimeout(function(){needToRejectSearch(query);}, 1000);
-			}
-		} else {
-			log(`Nothing found. Query: ${query}`);
-			log(`porn: ${query.includes("porn")} xnxx ${query.includes("xnxx")} xvideos ${query.includes("xvideos")}`);
+			} else setTimeout(function(){needToRejectSearch(query);}, 1000);
 		}
 	} catch(e) {
 		console.error(e);
@@ -58,7 +42,7 @@ function needToRejectSearch(query) {
 				document.title = `${p.get("gsc.q")} - SafeQuery`;
 				safeApplied=false;
 				setTimeout(function(){
-					needToRejectSearch(decodeURIComponent(p.get("gsc.q")));
+					needToRejectSearch(decodeURIComponent(p.get("gsc.q").toLocaleLowerCase()));
 				}, 2000);
 			}
 		}
