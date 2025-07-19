@@ -28,7 +28,7 @@ function needToRejectSearch(query) {
 			if (p.has("gsc.q")) {
 				document.title = `${p.get("gsc.q")} - Family Search Engine`;
 				safeApplied=false;
-				needToRejectSearch();
+				needToRejectSearch(decodeURIComponent(p.get("gsc.q")));
 			}
 		}
 	}
