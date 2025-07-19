@@ -34,7 +34,9 @@ function needToRejectSearch(query) {
 			if (p.has("gsc.q")) {
 				document.title = `${p.get("gsc.q")} - SafeQuery`;
 				safeApplied=false;
-				needToRejectSearch(decodeURIComponent(p.get("gsc.q")));
+				setTimeout(function(){
+					needToRejectSearch(decodeURIComponent(p.get("gsc.q")));
+				}, 2000);
 			}
 		}
 	}
