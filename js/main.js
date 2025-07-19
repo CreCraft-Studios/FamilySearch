@@ -28,7 +28,7 @@ function needToRejectSearch(query) {
 			const p = new URLSearchParams(h);
 			
 			if (p.has("gsc.q")) {
-				document.title = `${p.get("gsc.q")} - Family Search Engine`;
+				document.title = `${p.get("gsc.q")} - SafeQuery`;
 				safeApplied=false;
 				needToRejectSearch(decodeURIComponent(p.get("gsc.q")));
 			}
