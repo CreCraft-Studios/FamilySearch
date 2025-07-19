@@ -39,6 +39,9 @@ function needToRejectSearch(query) {
 				log("d is null. trying again");
 				setTimeout(function(){needToRejectSearch(query);}, 1000);
 			}
+		} else {
+			log(`Nothing found. Query: ${query}`);
+			log(`porn: ${query.includes("porn")} xnxx ${query.includes("xnxx")} xvideos ${query.includes("xvideos")}`);
 		}
 	} catch(e) {
 		console.error(e);
