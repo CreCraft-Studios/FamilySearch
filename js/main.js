@@ -1,17 +1,46 @@
 (function(){
+var safeApplied=false;
+function needToRejectSearch(query) {
+	if (query.includes("porn") || query.includes("xnxx") || query.includes("xvideos")) {
+		const d = document.getElementsByClassName("gsc-expansionArea")[0];
+		while (d.children.length>0) {
+		    d.removeChild(d.firstChild);
+		}
+		const p = document.createElement("div");
+		p.setAttribute("class", "gsc-webResult gsc-result");
+		const p2 = document.createElement("div");
+		p2.setAttribute("class", "gs-webResult gs-result gs-no-results-result");
+		const p3 = document.createElement("div");
+		p3.setAttribute("class", "gs-snippet");
+		p3.innerText = "No Results Found. (Could be due to restrictions)";
+		
+		p2.appendChild(p3);
+		p.appendChild(p2);
+		d.appendChild(p);
+	}
+}
+	
 	function loadTitle() {
 		if (window.location.href.includes('#')) {
 			const h = window.location.hash.substring(1);
 			const p = new URLSearchParams(h);
 			
-			if (p.has("gsc.q"))
+			if (p.has("gsc.q")) {
 				document.title = `${p.get("gsc.q")} - Family Search Engine`;
+				safeApplied=false;
+				needToRejectSearch();
+			}
 		}
 	}
 
 	var st=null;
 	function enableSafeSearch() {
 try {
+if (safeApplied) {
+	clearInterval(st);
+	return;
+}
+	
 	    var p = document.getElementsByClassName("gcsc-more-maybe-branding-root")[0];
 	if (p==null)
 		p = document.getElementsByClassName("gcsc-more-maybe-branding-box")[0];
@@ -22,6 +51,7 @@ try {
 				const url = `${a.getAttribute("href")}&safe=strict`;
 		    		a.setAttribute("href", url);
 clearInterval(st);
+safeApplied=true;
 			}
 		}
 } catch(e) {
