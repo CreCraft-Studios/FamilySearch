@@ -1,6 +1,6 @@
 (function(){
 var safeApplied=false;
-function log(log) {
+function log(msg) {
 	const l = document.getElementById("log");
 	const m = document.createElement("p")
 m.innerText = `Log: ${msg}`;
